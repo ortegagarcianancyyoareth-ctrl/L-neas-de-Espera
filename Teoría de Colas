@@ -1,0 +1,19 @@
+import java.util.Scanner;
+public class LineasDeEspera {
+    public static void main (String[] args) {
+        Scanner lector = new Scanner(System.in);
+        int opcion, c;
+        double λ, μ, P, P0, L, Lq, W, Wq;
+
+        System.out.println("Elige el modelo de colas: ");
+        System.out.println("1. M/M/1");
+        System.out.println("2. M/M/c");
+        System.out.println("3. M/M/1/K");
+        opcion = lector.nextInt();
+
+        switch (opcion) {
+            case 1: 
+                System.out.println("Ingresa el promedio de llegadas (λ): ");
+                λ = lector.nextDouble();
+                System.out.println("Ingresa el promedio del servicio (μ): ";
+                μ = lector.nextDouble();
