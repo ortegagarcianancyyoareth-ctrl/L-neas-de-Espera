@@ -3,7 +3,7 @@ public class LineasDeEspera {
     public static void main (String[] args) {
         Scanner lector = new Scanner(System.in);
         int opcion, c;
-        double λ, μ, P, P0, L, Lq, W, Wq, a;
+        double λ, μ, P, P0, L, Lq, W, Wq, a, suma, factorial1, factorial2, operacion, Pespera;
         do {
             System.out.println("Elige el modelo de colas: ");
             System.out.println("1. M/M/1");
@@ -15,7 +15,7 @@ public class LineasDeEspera {
                 case 1: 
                     System.out.println("Ingresa el promedio de llegadas (λ): ");
                     λ = lector.nextDouble();
-                    System.out.println("Ingresa el promedio del servicio (μ): ";
+                    System.out.println("Ingresa el promedio del servicio (μ): ");
                     μ = lector.nextDouble();
                     P = λ / μ;
                     System.out.println("P: " + P);
@@ -27,7 +27,7 @@ public class LineasDeEspera {
                     System.out.println("Lq: " + Lq);
                     W = 1 / (μ - λ);
                     System.out.println("W: " + W);
-                    Wq = λ / (μ * (μ - λ);
+                    Wq = λ / (μ * (μ - λ));
                     System.out.println("Wq: " + Wq);
                     break;
                 case 2:
@@ -38,6 +38,28 @@ public class LineasDeEspera {
                     System.out.println("Ingresa el numero de servidores (c): ");
                     c = lector.nextInt();
                     P = λ / (c * μ);
-                    System.out.println("P: " + p);
+                    System.out.println("P: " + P);
                     a = λ / μ;
-                    System.out.println("a: " + a);    
+                    System.out.println("a: " + a);
+                    suma = 0.0;
+                    for(int n = 0; n < c; n++) {
+                        factorial1 = 1;
+                        for(int i = 1; i <= n; i++) factorial1 *= i;
+                        suma += Math.pow(a, n) / factorial1;
+                    }
+                    factorial2 = 1;
+                    for(int i = 1; i <= c; i++) factorial2 *= i;
+                    operacion = Math.pow(a, c) / (factorial2 * (1 - P));
+                    P0 = 1.0 / (suma + operacion);
+                    System.out.println("P0: " + P0);
+                    Pespera = operacion * P0;
+                    System.out.println("Pespera: " + Pespera);
+                    Lq = Pespera * P / (1 - P);
+                    System.out.println("Lq: " + Lq);
+                    Wq = Lq / λ;
+                    System.out.println("Wq: " + Wq);
+                    W = Wq + 1.0 / μ;
+                    System.out.println("W: " + W);
+                    L = λ * W;
+                    System.out.println("L: " + L);
+                    break;
