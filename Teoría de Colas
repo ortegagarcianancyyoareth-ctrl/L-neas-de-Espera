@@ -3,30 +3,41 @@ public class LineasDeEspera {
     public static void main (String[] args) {
         Scanner lector = new Scanner(System.in);
         int opcion, c;
-        double λ, μ, P, P0, L, Lq, W, Wq;
+        double λ, μ, P, P0, L, Lq, W, Wq, a;
+        do {
+            System.out.println("Elige el modelo de colas: ");
+            System.out.println("1. M/M/1");
+            System.out.println("2. M/M/c");
+            System.out.println("3. M/M/1/K");
+            opcion = lector.nextInt();
 
-        System.out.println("Elige el modelo de colas: ");
-        System.out.println("1. M/M/1");
-        System.out.println("2. M/M/c");
-        System.out.println("3. M/M/1/K");
-        opcion = lector.nextInt();
-
-        switch (opcion) {
-            case 1: 
-                System.out.println("Ingresa el promedio de llegadas (λ): ");
-                λ = lector.nextDouble();
-                System.out.println("Ingresa el promedio del servicio (μ): ";
-                μ = lector.nextDouble();
-                P = λ / μ;
-                System.out.println("P: " + P);
-                P0 = 1 - P;
-                System.out.println("P0: " + P0);
-                L = P / (1 - P);
-                System.out.println("L: " + L);
-                Lq = P * P / (1 - P);
-                System.out.println("Lq: " + Lq);
-                W = 1 / (μ - λ);
-                System.out.println("W: " + W);
-                Wq = λ / (μ * (μ - λ);
-                System.out.println("Wq: " + Wq);
-                break;
+            switch (opcion) {
+                case 1: 
+                    System.out.println("Ingresa el promedio de llegadas (λ): ");
+                    λ = lector.nextDouble();
+                    System.out.println("Ingresa el promedio del servicio (μ): ";
+                    μ = lector.nextDouble();
+                    P = λ / μ;
+                    System.out.println("P: " + P);
+                    P0 = 1 - P;
+                    System.out.println("P0: " + P0);
+                    L = P / (1 - P);
+                    System.out.println("L: " + L);
+                    Lq = P * P / (1 - P);
+                    System.out.println("Lq: " + Lq);
+                    W = 1 / (μ - λ);
+                    System.out.println("W: " + W);
+                    Wq = λ / (μ * (μ - λ);
+                    System.out.println("Wq: " + Wq);
+                    break;
+                case 2:
+                    System.out.println("Ingresa el promedio de llegadas (λ): ");
+                    λ = lector.nextDouble();
+                    System.out.println("Ingresa el promedio del servicio (μ): ");
+                    μ = lector.nextDouble();
+                    System.out.println("Ingresa el numero de servidores (c): ");
+                    c = lector.nextInt();
+                    P = λ / (c * μ);
+                    System.out.println("P: " + p);
+                    a = λ / μ;
+                    System.out.println("a: " + a);    
