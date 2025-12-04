@@ -76,3 +76,22 @@ public class LineasDeEspera {
                     potencia1 = Math.pow(P, K + 1);
                     P0 = (1 - P) / (1 - potencia1);
                     System.out.println("P0: " + P0);
+                    potencia2 = Math.pow(P, K);
+                    Pk = potencia2 * P0;
+                    System.out.println("Pk: " + Pk);
+                    λe = λ * (1 - Pk);
+                    System.out.println("λe: " + λe);
+                    numerador = P * (1 - (K + 1) * potencia2 + K * potencia1);
+                    denominador = (1 - P) * (1 - potencia1);
+                    L = numerador / denominador;
+                    System.out.println("L: " + L);
+                    W = L / λe;
+                    System.out.println("W: " + W);
+                    break;
+                default:
+                    System.out.println("Error");
+                    break;
+            }
+        } while (opcion != 0);
+    }
+}
