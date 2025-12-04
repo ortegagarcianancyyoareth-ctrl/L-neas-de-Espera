@@ -2,8 +2,9 @@ import java.util.Scanner;
 public class LineasDeEspera {
     public static void main (String[] args) {
         Scanner lector = new Scanner(System.in);
-        int opcion, c;
-        double λ, μ, P, P0, L, Lq, W, Wq, a, suma, factorial1, factorial2, operacion, Pespera;
+        int opcion, c, K;
+        double λ, μ, P, P0, L, Lq, W, Wq, a, suma, factorial1, factorial2, operacion, Pespera, potencia1, potencia2,numerador, denominador, Pk, λe;
+        
         do {
             System.out.println("Elige el modelo de colas: ");
             System.out.println("1. M/M/1");
@@ -63,3 +64,15 @@ public class LineasDeEspera {
                     L = λ * W;
                     System.out.println("L: " + L);
                     break;
+                case 3: 
+                    System.out.println("Ingresa el promedio de llegadas (λ): ");
+                    λ = lector.nextDouble();
+                    System.out.println("Ingresa el promedio del servicio (μ): ");
+                    μ = lector.nextDouble();
+                    System.out.println("Ingresa el maximo de clientes (K): ");
+                    K = lector.nextInt();
+                    P = λ / μ;
+                    System.out.println("P: " + P);
+                    potencia1 = Math.pow(P, K + 1);
+                    P0 = (1 - P) / (1 - potencia1);
+                    System.out.println("P0: " + P0);
